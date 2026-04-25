@@ -31,31 +31,40 @@ class _PostsScreenState extends State<PostsScreen> {
     return Scaffold(
       appBar: AppBar(
         title: Center(
-          child: Text("Posts",style: TextStyle(fontWeight: FontWeight.bold, fontSize: 28),),
+          child: Text(
+            "Posts",
+            style: TextStyle(fontWeight: FontWeight.bold, fontSize: 28),
+          ),
         ),
         backgroundColor: Colors.teal,
       ),
       body: ListView.builder(
-                  padding: EdgeInsets.all(12),
-                  itemCount: posts.length,
-                  itemBuilder: (context, index) {
-                    return Card(
-                      margin: EdgeInsets.only(bottom: 12),
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(12),
-                      ),
-                      child: ListTile(
-                        contentPadding: EdgeInsets.all(12),
-                        leading: CircleAvatar(
-                          backgroundColor: Colors.teal,
-                          child: Text(posts[index].id.toString(),style: TextStyle(color: Colors.white),),
-                        ),
-                        title: Text(posts[index].title,style: TextStyle(fontWeight: FontWeight.bold),),
-                        subtitle: Text(posts[index].body),
-                      ),
-                    );
-                  },
+        padding: EdgeInsets.all(12),
+        itemCount: posts.length,
+        itemBuilder: (context, index) {
+          return Card(
+            margin: EdgeInsets.only(bottom: 12),
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(12),
+            ),
+            child: ListTile(
+              contentPadding: EdgeInsets.all(12),
+              leading: CircleAvatar(
+                backgroundColor: Colors.teal,
+                child: Text(
+                  posts[index].id.toString(),
+                  style: TextStyle(color: Colors.white),
                 ),
+              ),
+              title: Text(
+                posts[index].title,
+                style: TextStyle(fontWeight: FontWeight.bold),
+              ),
+              subtitle: Text(posts[index].body),
+            ),
+          );
+        },
+      ),
     );
   }
 }
